@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+
 namespace colors_io
 {
 	public class RgbaColor : ColorValue
@@ -12,7 +14,12 @@ namespace colors_io
 
         protected override void ValidateOrThrow(string value)
         {
-            throw new NotImplementedException();
+	        var rgbaRegex = new Regex(@"^rgba\((25[0-5]|2[0-4][0-9]|1?[0-9]{1,2}),(25[0-5]|2[0-4][0-9]|1?[0-9]{1,2}),(25[0-5]|2[0-4][0-9]|1?[0-9]{1,2}),(1|0?\.[0-9]+|0)\)$");
+
+	        if (!rgbaRegex.IsMatch(value))
+	        {
+		        throw new Exception();
+	        }
         }
     }
 }

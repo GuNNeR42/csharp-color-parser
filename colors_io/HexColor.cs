@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+
 namespace colors_io
 {
 	public class HexColor : ColorValue
@@ -13,8 +15,16 @@ namespace colors_io
 
         protected override void ValidateOrThrow(string value)
         {
-            throw new NotImplementedException();
+            Regex hexRegex = new Regex(@"^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$
+");
+
+            if (!hexRegex.IsMatch(value))
+            {
+                throw new Exception();
+            }
         }
+        
+        
 
     }
 }
