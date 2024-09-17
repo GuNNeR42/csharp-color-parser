@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace colors_io
@@ -18,7 +19,7 @@ namespace colors_io
 
 	        if (!rgbaRegex.IsMatch(value))
 	        {
-		        throw new Exception();
+		        throw new ValidationException($"Invalid RGBA color format: {value}");
 	        }
         }
     }
