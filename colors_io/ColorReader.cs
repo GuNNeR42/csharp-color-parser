@@ -5,7 +5,7 @@
 		public List<ColorValue> ReadCsvColors(string filePath)
 		{
 			var colors = new List<ColorValue>();
-			using (StreamReader rdr = new StreamReader("path"))
+			using (StreamReader rdr = new StreamReader(filePath))
 			{
 				while (!rdr.EndOfStream)
 				{
@@ -19,7 +19,7 @@
 
 		private ColorValue ParseCsvColor(string line)
 		{
-			var columns = line.Split(',');
+			var columns = line.Split(';');
 			string name = columns[0];
 			string type = columns[1];
 			string value = columns[2];
