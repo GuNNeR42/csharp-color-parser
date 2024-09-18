@@ -16,7 +16,7 @@ public class RgbaColor : ColorValue
     {
         var rgbaRegex =
             new Regex(
-                @"^rgba\((25[0-5]|2[0-4][0-9]|1?[0-9]{1,2}),(25[0-5]|2[0-4][0-9]|1?[0-9]{1,2}),(25[0-5]|2[0-4][0-9]|1?[0-9]{1,2}),(1|0?\.[0-9]+|0)\)$");
+                @"^rgba\((([01]?\d\d?|2[0-4]\d|25[0-5]),){3}(1|0?\.\d+|0)\)$");
 
         if (!rgbaRegex.IsMatch(value)) throw new ValidationException($"Invalid RGBA color format: {value}");
     }
