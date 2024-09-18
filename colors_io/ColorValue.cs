@@ -1,21 +1,18 @@
-﻿using System;
-namespace colors_io
+﻿namespace colors_io;
+
+public abstract class ColorValue
 {
-	public abstract class ColorValue
-	{
-		public string Name { get; private set; }
-
-		public abstract string Type { get; }
-
-		public string Value { get; private set; }
-
-        protected ColorValue(string name, string value)
-        {
-            Name = name;
-            Value = value;
-        }
-
-        protected abstract void ValidateOrThrow(string value);
+    protected ColorValue(string name, string value)
+    {
+        Name = name;
+        Value = value;
     }
-}
 
+    public string Name { get; private set; }
+
+    public abstract string Type { get; }
+
+    public string Value { get; private set; }
+
+    protected abstract void ValidateOrThrow(string value);
+}
