@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace colors_io
@@ -11,10 +10,10 @@ namespace colors_io
 
         public HexColor(string name, string value) : base(name, value)
         {
-
+            ValidateOrThrow(value);
         }
 
-        protected override void ValidateOrThrow(string value)
+        protected sealed override void ValidateOrThrow(string value)
         {
             Regex hexRegex = new Regex(@"^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$");
 
@@ -23,9 +22,6 @@ namespace colors_io
                 throw new ValidationException($"Invalid HEX color format: {value}");
             }
         }
-        
-        
-
     }
 }
 

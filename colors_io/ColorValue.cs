@@ -13,12 +13,9 @@ namespace colors_io
         {
             Name = name;
             Value = value;
-
-            ValidateOrThrow(value);
         }
 
         protected abstract void ValidateOrThrow(string value);
-
     }
 }
 
